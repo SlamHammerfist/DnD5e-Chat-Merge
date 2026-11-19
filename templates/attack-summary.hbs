@@ -1,0 +1,43 @@
+<section class="icon-row chat-merge-summary attack-summary with-buttons">
+    <i class="fa-fw fa-solid fa-dice-d20" aria-label="{{ chatMerge.label }}"></i>
+    <ul class="pills unlist">
+        <li class="pill transparent">{{ chatMerge.label }}</li>
+        {{#if chatMerge.ammunition}}
+        <li class="pill transparent">{{ chatMerge.ammunition }}</li>
+        {{/if}}
+    </ul>
+    {{#each rolls}}
+    {{{ this }}}
+    {{/each}}
+</section>
+
+{{#if targets.length}}
+<section class="icon-row">
+    <i class="fa-fw fa-solid fa-bullseye" aria-label="{{ localize "DND5E.CHATMESSAGE.Row.Targets" }}"></i>
+    <ul class="unlist targets pills">
+        {{#each targets}}
+        <li>
+            <target-pill {{#if showResult}}{{ ifThen isMiss "data-miss" "data-hit" }}{{/if}}
+                {{#if showAC}}data-value="{{ ifThen hasAC ac "∞" }}"{{/if}}>
+                <label>{{ name }}</label>
+                <datalist>
+                    <option value="{{ token }}">{{ name }}</option>
+                </datalist>
+            </target-pill>
+        </li>
+        {{/each}}
+    </ul>
+</section>
+{{/if}}
+
+{{#if mastery}}
+<p class="supplement">
+    <strong>{{ localize "DND5E.WEAPON.Mastery.Flavor" }}</strong>
+    {{#if mastery.reference}}
+    <a class="content-link" draggable="true" data-link data-uuid="{{ mastery.reference }}"
+       data-tooltip="{{ mastery.label }}">{{ mastery.label }}</a>
+    {{else}}
+    {{ mastery.label }}
+    {{/if}}
+</p>
+{{/if}}

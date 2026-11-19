@@ -1,0 +1,33 @@
+{
+  "id": "dnd5e-chat-merge",
+  "title": "D&D 5e Chat Merge",
+  "description": "Folds attack, damage, healing and saving throw rolls into the item card that produced them, so one use of an item is one message in chat.",
+  "version": "1.0.0",
+  "authors": [
+    { "name": "Slam Hammerfist" }
+  ],
+  "url": "https://github.com/SlamHammerfist/DnD5e-Chat-Merge",
+  "manifest": "https://github.com/SlamHammerfist/DnD5e-Chat-Merge/releases/latest/download/module.json",
+  "download": "https://github.com/SlamHammerfist/DnD5e-Chat-Merge/releases/download/v1.0.0/module.zip",
+  "bugs": "https://github.com/SlamHammerfist/DnD5e-Chat-Merge/issues",
+  "readme": "https://github.com/SlamHammerfist/DnD5e-Chat-Merge/blob/main/README.md",
+  "changelog": "https://github.com/SlamHammerfist/DnD5e-Chat-Merge/blob/main/CHANGELOG.md",
+  "compatibility": {
+    "minimum": "14",
+    "verified": "14"
+  },
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "6.0.0",
+          "verified": "6.1.1"
+        }
+      }
+    ]
+  },
+  "esmodules": ["scripts/main.js"],
+  "styles": ["styles/chat-merge.css"]
+}

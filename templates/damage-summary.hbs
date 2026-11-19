@@ -1,0 +1,25 @@
+<section class="icon-row chat-merge-summary damage-summary with-buttons{{#if chatMerge.healing}} healing{{/if}}">
+    <i class="fa-fw fa-solid {{ chatMerge.icon }}" aria-label="{{ chatMerge.title }}"></i>
+    <ul class="pills unlist">
+        <li class="pill transparent">{{ chatMerge.label }}</li>
+        {{#if chatMerge.critical}}
+        <li class="pill critical">{{ localize "DND5E.Critical" }}</li>
+        {{/if}}
+    </ul>
+    <button type="button" class="dice-roll{{#if chatMerge.critical}} critical{{/if}}" {{ disabled isPrivate }}>
+        <span class="result">
+            <strong class="total">{{ ifThen isPrivate "?" total }}</strong>
+        </span>
+    </button>
+    {{#unless isPrivate}}
+    <div class="roll-breakdown" popover>{{> "dnd5e.damage-breakdown" }}</div>
+    {{/unless}}
+</section>
+
+{{#if onSave}}
+<p class="supplement"><strong>{{ localize "DND5E.SAVE.OnSave" }}</strong> {{ onSave }}</p>
+{{/if}}
+
+{{#if showTray}}
+<damage-application class="dnd5e2"></damage-application>
+{{/if}}

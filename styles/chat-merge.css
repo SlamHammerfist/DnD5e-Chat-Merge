@@ -1,0 +1,19 @@
+/* Rows folded into an item card. Layout and dice styling come from dnd5e's own .card-summary rules. */
+
+:is(.chat-log, .chat-popout) .message.compact .card-summary .chat-merge-summary {
+  anchor-name: --chat-merge-summary;
+  anchor-scope: --chat-merge-summary;
+}
+
+:is(.chat-log, .chat-popout) .message.compact .card-summary .chat-merge-summary .roll-breakdown {
+  position-anchor: --chat-merge-summary;
+}
+
+:is(.chat-log, .chat-popout) .message.compact .card-summary .damage-summary.healing > i {
+  color: var(--dnd5e-color-green, #2e7d32);
+}
+
+/* dnd5e pulls trays down onto the card's bottom edge; inside a summary they sit under their own row instead. */
+:is(.chat-log, .chat-popout) .message.compact .card-summary damage-application .card-tray {
+  margin-block-end: 0;
+}
